@@ -5,5 +5,5 @@
     $twig = new Twig_Environment($loader, array(
       'cache' => false
     ));
-    $template = $twig->load('layout.html');
+    $template = $twig->load('views/layout.html');
     echo $template->render(array(''));
