@@ -10,5 +10,5 @@ if (isset($_GET['action'])) {
 }
 
 else {
-    require "models/layout.php";
+    require "models/home.php";
 }
