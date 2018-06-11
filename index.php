@@ -1,6 +1,6 @@
 <?php
 
-echo ('coucou');
+//echo ('coucou');
 
 if (isset($_GET['action'])) {
     switch ($_GET['action']){
