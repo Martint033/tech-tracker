@@ -2,10 +2,7 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    line-height: 1.4;
-    font-family: aclonica, sans-serif;
-    font-weight: 500;
-    font-size: 18px;
+    font-family: Orbitron;
     background: antiquewhite;
 }
 
@@ -14,17 +11,17 @@ body {
 }
 
 .map__image {
-    width: 50%;
-    float: left;
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-75%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .map__image svg {
     width: 100%;
-    height: 500px;
+    height: 100%;
+    padding-top: 100px;
 }
 
 .map__image path {
@@ -43,7 +40,7 @@ body {
 }
 
 .map__list {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     float: right;
@@ -83,6 +80,70 @@ p {
     border-bottom: 1px solid black;
     text-align: center;
     margin: 0;
-
 }
 
+/* NavBar */
+ul {
+    list-style-type: none;
+    margin: auto;
+    padding: auto;
+    padding-left: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    padding-top: 35px;
+    padding-left: 20px;
+    line-height:200%;
+}
+
+li img {
+    padding-bottom: 10px;
+}
+
+/* Media Queries */
+
+@media all and (min-width: 460px) and (max-width: 1441px){ 
+
+    .map__image svg {
+        width: 100%;
+        height: 500px;
+        padding-top: 200px;
+    }
+}
+
+@media (min-width: 1280px) { 
+
+    .map__image svg {
+        width: 100%;
+        height: 500px;
+        padding-top: 200px;
+    }
+
+    li a {
+        position: relative;
+        display: block;
+        color: white;
+        text-align: center;
+        font-size: 40px;
+        text-decoration: none;
+        padding-top: 40px;
+        padding-left: 20px;
+        line-height:200%;
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+    }
+}

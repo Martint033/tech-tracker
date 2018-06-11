@@ -38,3 +38,8 @@ links.forEach(function (link) {
 map.addEventListener('mouseover', function () {
     activeArea()
 })
+
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
