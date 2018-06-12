@@ -1,7 +1,4 @@
 <?php
-
-echo ('coucou');
-
 if (isset($_GET['action'])) {
     switch ($_GET['action']){
         
