@@ -18,7 +18,7 @@ class CommuneManager
 		// var_dump($region);
 		// die;
 		$region = $this->dbh->quote($region);
-		$sql = 'SELECT REG_NOM AS region, COM_NOM_MAJ_COURT AS commune_maj_court, COM_NOM_MAJ AS commune_maj, COM_NOM AS commune_nom FROM ' . $this->table  . ' WHERE REG_NOM=' . $region;
+		$sql = 'SELECT nom_region AS region, nom_commune AS nom_commune FROM ' . $this->table  . ' WHERE code_region=' . $region;
 		
 		$req = $this->dbh->prepare($sql);
 		$req->execute();
