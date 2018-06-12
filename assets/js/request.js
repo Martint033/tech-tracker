@@ -1,4 +1,3 @@
-
 // "https://api.github.com/search/users?q=location:besan%C3%A7on"
 // var testUrl = new URL('http://localhost/teck-tracker/sendJson.php?region=Provence-Alpes-Côte d\'Azur');
 fetch("sendJson.php?region=Provence-Alpes-Côte d\'Azur")
