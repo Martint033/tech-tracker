@@ -1,6 +1,6 @@
 var map = document.querySelector('#map')
 var paths = map.querySelectorAll('.map__image a')
-var links = map.querySelectorAll('.map__list a')
+var links = map.querySelectorAll('.map__list p')
 
 
 //Polyfill du foreach
@@ -16,7 +16,6 @@ var activeArea = function (id) {
         item.classList.remove('is-active')
     })
     if (id !== undefined) {
-        console.log(id);
         document.querySelector('#list-' + id).classList.add('is-active')
         document.querySelector('#region-' + id).classList.add('is-active')
     }
@@ -39,3 +38,8 @@ links.forEach(function (link) {
 map.addEventListener('mouseover', function () {
     activeArea()
 })
+
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
