@@ -11,9 +11,10 @@ class RegionLanguageManager extends DbManager{
 		$req->execute();
 		return $req->fetch(PDO::FETCH_ASSOC);
 	}
-	// attend un tableau assoc [code_region, region, total, php, javascript, python, java, ruby, c, c++, c#]
+	// attend un tableau assoc [code_region, region, total, php, javascript, python, java, ruby, c, cPlusPlus, cSharp]
 	public function insert(array $data){
-		$sql = "INSERT INTO " . $this->table . " (code_region, region, total, php, javascript, python, java, ruby, c, c++, c#) VALUES (:code_region, :region, :total, :php, :javascript, :python, :java, :ruby, :c, :c++, :c#)";
+		// var_dump($data);
+		$sql = 'INSERT INTO ' . $this->table . ' (code_region, region, total, php, javascript, python, java, ruby, c, cPlusPlus, cSharp) VALUES (:code_region, :region, :total, :php, :javascript, :python, :java, :ruby, :c, :cPlusPlus, :cSharp)';
 		$req = $this->dbh->prepare($sql);
 		$req->bindParam(':code_region', $data['code_region'], PDO::PARAM_INT);
 		$req->bindParam(':region', $data['region'], PDO::PARAM_STR);
@@ -24,8 +25,9 @@ class RegionLanguageManager extends DbManager{
 		$req->bindParam(':java', $data['java'], PDO::PARAM_INT);
 		$req->bindParam(':ruby', $data['ruby'], PDO::PARAM_INT);		
 		$req->bindParam(':c', $data['c'], PDO::PARAM_INT);
-		$req->bindParam(':c++', $data['c++'], PDO::PARAM_INT);
-		$req->bindParam(':c#', $data['c#'], PDO::PARAM_INT);
+		$req->bindParam(':cPlusPlus', $data['cPlusPlus'], PDO::PARAM_INT);
+		$req->bindParam(':cSharp', $data['cSharp'], PDO::PARAM_INT);
+		
 		$req->execute();	
 	}
 	// attend un code région et un tableau associatif
@@ -33,18 +35,24 @@ class RegionLanguageManager extends DbManager{
 	public function update(int $codeRegion, array $data){
 		
 		$sql = "UPDATE " . $this->table . " SET ";
-		$keys = array_keys($data); 
-		foreach ($keys as $key) {
-			$sql .= $key . "= :" .$key;
+		$keys = array_keys($data);
+		$keyslength = count($keys);
+		// probleme virgule à ajouter boucle à changer
+		for ($i = 0; $i < $keyslength; $i++){
+			if ($i < $keyslength - 1){
+				$sql .= $keys[$i] . "= :" . $keys[$i] . ", ";
+			} else {
+				$sql .= $keys[$i] . "= :" . $keys[$i];
+			}			
 		}
-		$sql .= " code_region = " . $codeRegion;
+		$sql .= " WHERE code_region = " . $codeRegion;
 		$req = $this->dbh->prepare($sql);
 		for ($i = 0; $i < count($data); $i++){
-			if (is_int($data[i])){
-				$req->bindParam(':' . $keys[i], $data[i], PDO::PARAM_INT);
+			if (is_int($data[$keys[$i]])){
+				$req->bindParam(':' . $keys[$i], $data[$keys[$i]], PDO::PARAM_INT);
 			}
-			if (is_string($data[i])){
-				$req->bindParam(':' . $keys[i], $data[i], PDO::PARAM_STR);
+			if (is_string($data[$keys[$i]])){
+				$req->bindParam(':' . $keys[$i], $data[$keys[$i]], PDO::PARAM_STR);
 			}			
 		}
 		$req->execute();
