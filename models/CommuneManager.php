@@ -22,4 +22,11 @@ class CommuneManager extends DbManager
 		$req->execute();
 		return $req->fetch(PDO::FETCH_ASSOC);
 	}
+
+	public function townByRegion($codeRegion){
+		$sql = "SELECT * FROM " . $this->table . " WHERE code_region = " . $codeRegion . " AND population > 10000";
+		$req = $this->dbh->prepare($sql);
+		$req->execute();
+		return $req->fetchAll(PDO::FETCH_ASSOC);
+	}
 }
