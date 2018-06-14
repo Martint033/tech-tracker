@@ -5,40 +5,4 @@ Graphique en barre
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <div id="top_x_div" style="width: 800px; height: 600px;"></div> div  que l'on vise
 
-google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-            ['Langage', 'Utilisateurs'],
-      ['JavaScript', 9],
-      ['Java', 2],
-      ['Ruby', 2],
-      ['PHP', 2],
-      ['Python', 57],
-      ['CSS', 47],
-      ['C++', 97],
-      ['C#', 87],
-      ['C', 77],
-      ['HTML', 67],
-        ]);
-
-        var options = {
-          width: 800,
-          legend: { position: 'none' },
-          chart: {
-            title: 'Nb de codeurs',
-            subtitle: '% dutilisation' },
-          axes: {
-            x: {
-              0: { side: 'top', label: 'White to move'} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        // Convert the Classic options to Material options.
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      };
  #}
