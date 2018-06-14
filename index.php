@@ -7,6 +7,11 @@ if (isset($_GET['action'])) {
             require "controllers/home.php";
             break;
 
+        case "map":
+            require "controllers/map.php";
+            break;
+
+
         case "test":
             require "controllers/test.php";
             break;

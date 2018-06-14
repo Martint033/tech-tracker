@@ -2,3 +2,4 @@ RewriteEngine on
 
 RewriteRule ^home$ index.php?action=home [L,QSA]
 RewriteRule ^test$ index.php?action=test [L,QSA]
+RewriteRule ^map$ index.php?action=map [L,QSA]
