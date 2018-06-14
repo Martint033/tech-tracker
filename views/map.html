@@ -43,9 +43,49 @@
 
 {% endblock mapContent %}
 
+{% block Result %}
+
+<div id="piechart" style="width: 900px; height: 500px;"></div>
+
+{% endblock Result %}
+
+
 {% block script %}
 
 <script src="assets/js/script.js"></script>
 <script src="assets/js/request.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+  
+          var data = google.visualization.arrayToDataTable([
+      ['Langage', 'Utilisateurs'],
+      ['JavaScript', 9],
+      ['Java', 2],
+      ['Ruby', 2],
+      ['PHP', 2],
+      ['Python', 7],
+      ['CSS', 7],
+      ['C++', 7],
+      ['C#', 7],
+      ['C', 7],
+      ['HTML', 7],
+          ]);
+  
+          var options = {
+            title: 'My Daily Activities',
+            is3D: true,
+          };
+  
+          var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+  
+          chart.draw(data, options);
+        }
+</script>
     
 {% endblock script %}
