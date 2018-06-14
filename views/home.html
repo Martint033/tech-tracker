@@ -1,5 +1,24 @@
-{% extends "layout.html" %} 
+{% extends "layout.html" %}
 
-{% block mapContent %}
+{% block style %}
+<link rel="stylesheet" href="assets/css/styleHome.css">
+{% endblock style %}
 
-{% endblock mapContent %}
+{% block content %}
+
+<div class="main">
+    <h1>Bienvenue sur TECH - TRACKER</h1>
+    <p>Le site qui tracke les techs utilisées par les devs !</p>
+</div>
+
+<div class="pulse">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="button">
+    <a href="/map.html" title="tracker"></a>
+</div>
+
+{% endblock content %}
