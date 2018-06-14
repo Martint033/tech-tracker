@@ -2,30 +2,24 @@
 /**
  * 
  */
-class CommuneManager
+class CommuneManager extends DbManager
 {
-	private $dbh;
-	private $table;
-
-	function __construct(string $table = "commune_region")
-	{
-		$db = new DataBase();
-		$this->dbh = $db->getInstance();
-		$this->table = $table;
+	public function __construct(){
+		parent::__construct();
+		$this->table = "commune_region";
 	}
-	public function communesParRégion(string $region){
-		// $region = str_replace("'", "\/'", $region);
-		// var_dump($region);
-		// die;
-		$region = $this->dbh->quote($region);
-		$sql = 'SELECT nom_region AS region, nom_commune AS nom_commune FROM ' . $this->table  . ' WHERE code_region=' . $region;
-		
+	// read peut recevoir un int correspondant à l'id
+	// ou une string correspondant au nom de la ville
+	public function read($town){
+		if (is_string($town)){
+			$town = $this->dbh->quote($town); 
+			$sql = "SELECT * FROM " . $this->table . " WHERE nom_commune = " . $town;
+		}
+		if (is_int($town)){
+			$sql = "SELECT * FROM " . $this->table . " WHERE id = " . $town;
+		}
 		$req = $this->dbh->prepare($sql);
 		$req->execute();
-		return $req->fetchAll(PDO::FETCH_ASSOC);
-	}
-	public function toJson(array $array){
-		$value = json_encode($array);
-		return $value;
+		return $req->fetch(PDO::FETCH_ASSOC);
 	}
 }
