@@ -88,7 +88,13 @@ class Region{
 	public function toArray(){
 		return get_object_vars($this);
 	}
+	public function computeTotalRep(){
+		$total = $this->php + $this->javascript + $this->python + $this->java + $this->ruby + $this->c + $this->cPlusPlus + $this->cSharp;
+		$this->total = $total;
+	}
 }
+//code_region, region, total, php, javascript, python, java, ruby, c, cPlusPlus, cSharp
+
 // instancier avec eval en bouclant les keys et les values du tableau 
 // associatif code_region => nom_region
 // $regionEnCours = eval('$region_'key' = new Region((int)'key', 'value');');
