@@ -171,14 +171,14 @@ a:hover:after {
 
     .main h1 {
         padding-top: 50px;
-        font-size: 55px;
+        font-size: 35px;
         color: black;
         text-align: center;
     }
     
     p {
         padding-top: 50px;
-        font-size: 35px;
+        font-size: 25px;
         color: black;
         text-align: center;
     }
@@ -186,14 +186,38 @@ a:hover:after {
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
 
-    .button {
-        position: absolute;
-        top: 50%;
-        left: 40%;
-        width: auto;
-        height: auto;
-        padding-top: 150px;
+    .main h1 {
+        padding-top: 50px;
+        font-size: 35px;
+        color: black;
+        text-align: center;
     }
+    
+    p {
+        padding-top: 50px;
+        font-size: 25px;
+        color: black;
+        text-align: center;
+    }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1439px) {
+
+    .main h1 {
+        padding-top: 50px;
+        font-size: 35px;
+        color: black;
+        text-align: center;
+    }
+    
+    p {
+        padding-top: 50px;
+        font-size: 25px;
+        color: black;
+        text-align: center;
+    }
+}
+@media all and (min-width: 1440px) and (max-width: 2540px) {
 
     .main h1 {
         padding-top: 50px;
@@ -208,9 +232,4 @@ a:hover:after {
         color: black;
         text-align: center;
     }
-}
-
-@media all and (min-width: 1024px) and (max-width: 1439px) {
-}
-@media all and (min-width: 1440px) and (max-width: 2540px) {
 }

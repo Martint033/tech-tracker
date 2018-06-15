@@ -1,0 +1,153 @@
+/* NavBar */
+
+nav {
+    top: 10px;
+    left: 0;
+    width: auto;
+    height: 100px;
+    transition: .5s;
+}
+
+nav .logo {
+    float: left;
+    padding-top: 15px;
+    padding-left: 5px;
+}
+
+nav .logo img {
+    height: 50px;
+    transition: .5s;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    
+}
+
+nav ul li a {
+    font-size: 18px;
+    line-height: 80px;
+    padding: 5px 20px;
+    text-decoration: none;
+    transition: .5s;
+    color: #a4ced2;
+}
+
+footer {
+    background-color: #a4ced2;
+    bottom: 0;
+    width: 100%
+    }
+
+
+/* Media Queries */
+
+@media all and (min-width: 320px) and (max-width: 767px) { 
+
+    nav ul li a {
+        font-size: 25px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) { 
+
+    nav {
+        position: fixed;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        transition: .5s;
+    }
+
+    nav ul li a {
+        font-size: 30px;
+        line-height: 100px;
+    }
+
+    nav .logo img {
+        height: 80px;
+    }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1440px) { 
+
+    nav {
+        position: fixed;
+        top: 10px;
+        left: 0;
+        width: auto;
+        box-sizing: border-box;
+        transition: .5s;
+    }
+
+    p {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-size: 30px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: auto;
+        padding: auto;
+        padding-left: 0;
+        overflow: hidden;
+    }
+
+    li {
+        padding-left: 25px;
+    }
+
+    li img {
+        width: 70px;
+        height: 70px;
+        padding: 0px 10px 20px 15px;
+    }
+}
+ 
+@media all and (min-width: 1440px) and (max-width: 2540px) { 
+
+    nav {
+        position: fixed;
+        top: 10px;
+        left: 0;
+        width: auto;
+        box-sizing: border-box;
+        transition: .5s;
+    }
+
+    p {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        font-size: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: auto;
+        padding: auto;
+        padding-left: 0;
+        overflow: hidden;
+    }
+
+    li {
+        padding-left: 25px;
+    }
+    
+    li a {
+        font-size: 35px;
+    }
+    
+    li img {
+        width: 70px;
+        height: 70px;
+        padding: 0px 10px 20px 15px;
+    }
+}

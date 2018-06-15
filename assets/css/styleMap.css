@@ -1,48 +1,10 @@
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* pop-up */
-
 body {
     padding: 0;
     margin: 0;
     font-family: Orbitron;
     background: url("../media/platinium.jpg");
+    background-size: cover;
+    background-repeat: round;
 }
 
 .map__image {
@@ -110,45 +72,44 @@ p {
     margin: 0;
 }
 
-/* NavBar */
+/* Modal */
 
-nav {
-    top: 10px;
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
     left: 0;
-    width: auto;
-    height: 100px;
-    transition: .5s;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-nav .logo {
-    float: left;
-    padding-top: 15px;
-    padding-left: 5px;
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
 
-nav .logo img {
-    height: 50px;
-    transition: .5s;
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    list-style: none;
-    
-}
-
-nav ul li a {
-    font-size: 18px;
-    line-height: 80px;
-    padding: 5px 20px;
+.close:hover,
+.close:focus {
+    color: #000;
     text-decoration: none;
-    transition: .5s;
-    color: #a4ced2;
+    cursor: pointer;
 }
 
 /* Media Queries */
@@ -165,22 +126,9 @@ nav ul li a {
         left: 50%;
         transform: translate(-52%, -50%);
     }
-
-    nav ul li a {
-        font-size: 25px;
-    }
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) { 
-
-    nav {
-        position: fixed;
-        top: 10px;
-        left: 0;
-        width: 100%;
-        box-sizing: border-box;
-        transition: .5s;
-    }
 
     .map__list {
         display: flex;
@@ -205,27 +153,9 @@ nav ul li a {
         height: 500px;
         padding-top: 100px;
     }
-
-    nav ul li a {
-        font-size: 30px;
-        line-height: 100px;
-    }
-
-    nav .logo img {
-        height: 80px;
-    }
 }
 
 @media all and (min-width: 1024px) and (max-width: 1440px) { 
-
-    nav {
-        position: fixed;
-        top: 10px;
-        left: 0;
-        width: auto;
-        box-sizing: border-box;
-        transition: .5s;
-    }
 
     .map__image svg {
         width: 500px;
@@ -250,46 +180,9 @@ nav ul li a {
         border: 1px solid white;
         background-color: #a4ced2;
     }
-
-    p {
-        padding-top: 25px;
-        padding-bottom: 25px;
-        font-size: 20px;
-    }
-
-    ul {
-        list-style-type: none;
-        margin: auto;
-        padding: auto;
-        padding-left: 0;
-        overflow: hidden;
-    }
-
-    li {
-        padding-left: 25px;
-    }
-    
-    li a {
-        font-size: 35px;
-    }
-    
-    li img {
-        width: 70px;
-        height: 70px;
-        padding: 0px 10px 20px 15px;
-    }
 }
  
 @media all and (min-width: 1440px) and (max-width: 2540px) { 
-
-    nav {
-        position: fixed;
-        top: 10px;
-        left: 0;
-        width: auto;
-        box-sizing: border-box;
-        transition: .5s;
-    }
 
     .map__image svg {
         width: 100%;
@@ -313,33 +206,5 @@ nav ul li a {
         width: 30%;
         border: 1px solid white;
         background-color: #a4ced2;
-    }
-
-    p {
-        padding-top: 25px;
-        padding-bottom: 25px;
-        font-size: 20px;
-    }
-
-    ul {
-        list-style-type: none;
-        margin: auto;
-        padding: auto;
-        padding-left: 0;
-        overflow: hidden;
-    }
-
-    li {
-        padding-left: 25px;
-    }
-    
-    li a {
-        font-size: 35px;
-    }
-    
-    li img {
-        width: 70px;
-        height: 70px;
-        padding: 0px 10px 20px 15px;
     }
 }
