@@ -6,7 +6,7 @@ require "models/CommuneManager.php";
 require "models/RegionLanguageManager.php";
 require "models/Region.php";
 
-$communeManager = new CommuneManager();
+
 $update = new RegionLanguageManager();
 
 $code_region = array('11' => 'Île-de-France',
@@ -49,6 +49,7 @@ function totalRepo($localite, $language){
 
 
 function allTownIn($region){  
+    $communeManager = new CommuneManager();
     return $communeManager->townByRegion($region);
 }
 
@@ -65,7 +66,7 @@ foreach ($code_region as $keyReg => $valueReg){
     
     for ($y = 0; $y < count($allLanguage); $y++) {
         
-        for ($x=0; $x < count($town); $x++){
+        for ($x=0; $x < 5; $x++){
                 
             $total += totalRepo($town[$x]['nom_commune'], $allLanguage[$y] );
             $etat++;
@@ -78,6 +79,7 @@ foreach ($code_region as $keyReg => $valueReg){
         $regionEnCours->$setLang($total);
         $total = 0;
     }
+    $regionEnCours->computeTotalRep();
 
     $verif = $update->read($keyReg);
     if (empty($verif)){

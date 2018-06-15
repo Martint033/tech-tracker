@@ -57,7 +57,7 @@ class RegionLanguageManager extends DbManager{
 		}
 		$req->execute();
 	}
-	
+
 	public function delete(int $id){
 		$sql = "DELETE FROM " . $this->table . " WHERE id = " . $id;
 		$req = $this->dbh->prepare($sql);
