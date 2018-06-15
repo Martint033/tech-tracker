@@ -126,22 +126,9 @@ p {
         left: 50%;
         transform: translate(-52%, -50%);
     }
-
-    nav ul li a {
-        font-size: 25px;
-    }
 }
 
 @media all and (min-width: 768px) and (max-width: 1023px) { 
-
-    nav {
-        position: fixed;
-        top: 10px;
-        left: 0;
-        width: 100%;
-        box-sizing: border-box;
-        transition: .5s;
-    }
 
     .map__list {
         display: flex;
@@ -166,27 +153,9 @@ p {
         height: 500px;
         padding-top: 100px;
     }
-
-    nav ul li a {
-        font-size: 30px;
-        line-height: 100px;
-    }
-
-    nav .logo img {
-        height: 80px;
-    }
 }
 
 @media all and (min-width: 1024px) and (max-width: 1440px) { 
-
-    nav {
-        position: fixed;
-        top: 10px;
-        left: 0;
-        width: auto;
-        box-sizing: border-box;
-        transition: .5s;
-    }
 
     .map__image svg {
         width: 500px;
@@ -211,46 +180,9 @@ p {
         border: 1px solid white;
         background-color: #a4ced2;
     }
-
-    p {
-        padding-top: 25px;
-        padding-bottom: 25px;
-        font-size: 20px;
-    }
-
-    ul {
-        list-style-type: none;
-        margin: auto;
-        padding: auto;
-        padding-left: 0;
-        overflow: hidden;
-    }
-
-    li {
-        padding-left: 25px;
-    }
-    
-    li a {
-        font-size: 35px;
-    }
-    
-    li img {
-        width: 70px;
-        height: 70px;
-        padding: 0px 10px 20px 15px;
-    }
 }
  
 @media all and (min-width: 1440px) and (max-width: 2540px) { 
-
-    nav {
-        position: fixed;
-        top: 10px;
-        left: 0;
-        width: auto;
-        box-sizing: border-box;
-        transition: .5s;
-    }
 
     .map__image svg {
         width: 100%;
@@ -274,33 +206,5 @@ p {
         width: 30%;
         border: 1px solid white;
         background-color: #a4ced2;
-    }
-
-    p {
-        padding-top: 25px;
-        padding-bottom: 25px;
-        font-size: 20px;
-    }
-
-    ul {
-        list-style-type: none;
-        margin: auto;
-        padding: auto;
-        padding-left: 0;
-        overflow: hidden;
-    }
-
-    li {
-        padding-left: 25px;
-    }
-    
-    li a {
-        font-size: 35px;
-    }
-    
-    li img {
-        width: 70px;
-        height: 70px;
-        padding: 0px 10px 20px 15px;
     }
 }
