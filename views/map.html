@@ -63,19 +63,19 @@
         </svg>
     </div>
     <div class="map__list">
-        <p id="list-A">
-            <a href="#">Région Grand Est</a>
+        <p>
+            <a href="#" id="list-A">Région Grand Est</a>
         </p>
         <p id="list-B">
-            <a href="#"#a4ced2;elle-Aquitaine</a>
+            <a href="#">Région Nouvelle-Aquitaine</a>
         </p>
-        <p id="list-C">#a4ced2;
-            <a href="#"#a4ced2;rgne-Rhône-Alpes</a>
+        <p id="list-C">
+            <a href="#">Région Auvergne-Rhône-Alpes</a>
         </p>
-        <p id="list-D">#a4ced2;
-            <a href="#"#a4ced2;gogne-Franche-Comté</a>
+        <p id="list-D">
+            <a href="#">Région Bourgogne-Franche-Comté</a>
         </p>
-        <p id="list-E">#a4ced2;
+        <p id="list-E">
             <a href="#">Région Bretagne</a>
         </p>
         <p id="list-F">
@@ -105,30 +105,135 @@
     </div>
 </div>
 
-<!-- Trigger/Open The Modal -->
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Langage', 'Nombre de projets'],
+            ['JavaScript', 9],
+            ['Java', 2],
+            ['Ruby', 2],
+            ['PHP', 2],
+            ['Python', 7],
+            ['CSS', 7],
+            ['C++', 7],
+            ['C#', 7],
+            ['C', 7],
+            ['HTML', 7],
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+            ['Langage', 'Nombre de projets'],
+            ['JavaScript', 9],
+            ['Java', 2],
+            ['Ruby', 2],
+            ['PHP', 2],
+            ['Python', 7],
+            ['CSS', 7],
+            ['C++', 7],
+            ['C#', 7],
+            ['C', 7],
+            ['HTML', 7]
+        ]);
+
+        var options = {
+          width: 800,
+          legend: { position: 'none' },
+          chart: {
+            title: 'Chess opening moves',
+            subtitle: 'popularity by percentage' },
+          axes: {
+            x: {
+              0: { side: 'top', label: 'White to move'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "100%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+
 <button id="myBtn">Open Modal</button>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>
-            <div id="piechart_3d" style="width: 1200px; height: 1000;"></div>
-            {# <div id="top_x_div" style="width: 800px; height: 600px;"></div> #}
-        </p>
-    </div>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>
+            <div id="piechart_3d" style="width: 500px; height: 120px;"></div>
+       <!-- <div id="top_x_div" style="width: 800px; height: 600px;"></div> -->
+
+    </p>
+
+  </div>
 
 </div>
+
+
 
 {% endblock content %}
 
 {% block script %}
-
+<script src="assets/js/graph.js"></script>
 <script src="assets/js/script.js"></script>
 <script src="assets/js/request.js"></script>
-<script src="assets/js/popup.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+    // Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById('#region-' + id);
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function(e) {
+    e.preventDefault();
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+</script>
 
 {% endblock script %}

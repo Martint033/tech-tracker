@@ -1,4 +1,5 @@
 body {
+    overflow: hidden;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -11,12 +12,12 @@ body {
 .main {
     max-width: 100%;
     height: auto;
-    margin-top: 100px;
+    margin-top: 10px;
     background-color: #a4ced2;
 }
 
 .main h1 {
-    padding-top: 50px;
+    padding-top: 30px;
     font-size: 25px;
     color: black;
     text-align: center;
@@ -25,7 +26,7 @@ body {
 
 p {
     padding-bottom: 30px;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
     text-align: center;
 }
@@ -111,74 +112,20 @@ p {
     }
 }
 
-/* .button {
-    position: absolute;
-    top: 50%;
-    left: 23%;
-    width: auto;
-    height: auto;
-    padding-top: 150px;
-}
-
-a {
-    font-size: 20px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transform-style: preserve-3d;
-    position: relative;
-    transition: .5s;
-}
-
-a:before {
-    content: attr(title);
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 15px 40px;
-    background: #000;
-    color: #a4ced2;
-    border: 3px solid #000;
-    transition: .5s;
-    transform-origin: right;
-    transform: translateX(-100%) rotateY(90deg);
-}
-
-a:after {
-    content: attr(title);
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 15px 40px;
-    background: #a4ced2;
-    color: #000;
-    border: 3px solid #000;
-    transition: .5s;
-    transform-origin: left;
-    transform: translateX(0) rotateY(0deg);
-}
-
-a:hover:before {
-    transform: translateX(0) rotateY(0deg);
-}
-
-a:hover:after {
-    transform: translateX(100%) rotateY(90deg);
-} */
-
 /* Media Queries  */
 
 @media all and (min-width: 320px) and (max-width: 767px) {
 
     .main h1 {
-        padding-top: 50px;
-        font-size: 35px;
+        padding-top: 30px;
+        font-size: 25px;
         color: black;
         text-align: center;
     }
     
     p {
         padding-top: 50px;
-        font-size: 25px;
+        font-size: 15px;
         color: black;
         text-align: center;
     }
@@ -186,9 +133,13 @@ a:hover:after {
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
 
+    .main {
+        margin-top: 120px;
+    }
+
     .main h1 {
-        padding-top: 50px;
-        font-size: 35px;
+        padding-top: 30px;
+        font-size: 30px;
         color: black;
         text-align: center;
     }
@@ -203,9 +154,14 @@ a:hover:after {
 
 @media all and (min-width: 1024px) and (max-width: 1439px) {
 
+
+    .main {
+        margin-top: 120px;
+    }
+
     .main h1 {
-        padding-top: 50px;
-        font-size: 35px;
+        padding-top: 30px;
+        font-size: 30px;
         color: black;
         text-align: center;
     }
@@ -219,16 +175,20 @@ a:hover:after {
 }
 @media all and (min-width: 1440px) and (max-width: 2540px) {
 
+    .main {
+        margin-top: 120px;
+    }
+
     .main h1 {
         padding-top: 50px;
-        font-size: 45px;
+        font-size: 30px;
         color: black;
         text-align: center;
     }
     
     p {
-        padding-top: 50px;
-        font-size: 30px;
+        padding-top: 30px;
+        font-size: 25px;
         color: black;
         text-align: center;
     }
