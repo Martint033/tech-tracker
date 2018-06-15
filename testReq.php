@@ -25,13 +25,13 @@ $code_region = array('11' => 'Île-de-France',
                         '94' => 'Corse'); 
                                   
 
-$allLanguage = ['php', 'javascript', 'python', 'java', 'ruby', 'c', 'cPlusPlus', 'cSharp'];
+$allLanguage = ['php', 'javascript', 'python', 'java', 'ruby', 'c', 'c++', 'c#'];
 
 
 
 
 function totalRepo($localite, $language){
-    $url = 'https://api.github.com/search/users?client_id=05350e6d2ae541f5631b&client_secret=5cce9bb3410b09f7398e47868663bac7425726ee&q=location:' . urlencode($localite) . '+language:' . $language;
+    $url = 'https://api.github.com/search/users?client_id=05350e6d2ae541f5631b&client_secret=5cce9bb3410b09f7398e47868663bac7425726ee&q=location:' . urlencode($localite) . '+language:' . urlencode($language);
 
     $req = curl_init();
     curl_setopt($req, CURLOPT_URL, $url);
@@ -76,8 +76,16 @@ foreach ($code_region as $keyReg => $valueReg){
                 $etat = 0;
             }
         }
-        $setLang = 'set_'.$allLanguage[$y];
-        $regionEnCours->$setLang($total);
+        if ($allLanguage[$y] == 'c++'){
+            $regionEnCours->set_cPlusPlus($total);
+        }
+        else if ($allLanguage[$y] == 'c#'){
+            $regionEnCours->set_cSharp($total);
+        }
+        else {
+            $setLang = 'set_'.$allLanguage[$y];
+            $regionEnCours->$setLang($total);
+        }
         $total = 0;
     }
     $regionEnCours->computeTotalRep();
@@ -86,6 +94,7 @@ foreach ($code_region as $keyReg => $valueReg){
     if (empty($verif)){
         $update->insert($regionEnCours->toArray());
     }
+    
     else {
         $update->update($keyReg, $regionEnCours->toArray());
     }
