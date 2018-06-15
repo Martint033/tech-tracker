@@ -1,48 +1,10 @@
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* pop-up */
-
 body {
     padding: 0;
     margin: 0;
     font-family: Orbitron;
     background: url("../media/platinium.jpg");
+    background-size: cover;
+    background-repeat: round;
 }
 
 .map__image {
@@ -110,45 +72,44 @@ p {
     margin: 0;
 }
 
-/* NavBar */
+/* Modal */
 
-nav {
-    top: 10px;
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
     left: 0;
-    width: auto;
-    height: 100px;
-    transition: .5s;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-nav .logo {
-    float: left;
-    padding-top: 15px;
-    padding-left: 5px;
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
 
-nav .logo img {
-    height: 50px;
-    transition: .5s;
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-nav ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    list-style: none;
-    
-}
-
-nav ul li a {
-    font-size: 18px;
-    line-height: 80px;
-    padding: 5px 20px;
+.close:hover,
+.close:focus {
+    color: #000;
     text-decoration: none;
-    transition: .5s;
-    color: #a4ced2;
+    cursor: pointer;
 }
 
 /* Media Queries */
