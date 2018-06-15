@@ -1,3 +1,4 @@
+
 <?php
 
 require "models/Database.php";
@@ -32,13 +33,32 @@ function allTownIn($region){
 }
 
 
+
+
+$code_region = array('11' => 'Île-de-France',
+						'24' => 'Centre-Val de Loire',
+						'27' => 'Bourgogne-Franche-Comté',
+						'28' => 'Normandie',
+						'32' => 'Hauts-de-France',
+						'44' => 'Grand Est',
+						'52' => 'Pays de la Loire',
+						'53' => 'Bretagne',
+						'75' => 'Nouvelle-Aquitaine',
+						'76' => 'Occitanie',
+						'84' => 'Auvergne-Rhône-Alpes',
+						'93' => 'Provence-Alpes-Côte d\'Azur',
+						'94' => 'Corse'); 
+
+
+// $code_region = [11, 24, 27, 28, 32, 44, 52, 53, 75, 76, 84, 93, 94];
+
 $town = allTownIn(11);
 $totalLang = 0;
 $etat = 0;
 // for ($y=0; $y<$language.length; $y++){
 
     for ($x=0; $x < count($town); $x++){
-        echo $town[$x]['nom_commune'].'</br>';
+        
         $totalLang += totalRepo($town[$x]['nom_commune'], 'php');
        
         $etat++;
@@ -52,3 +72,4 @@ echo $totalLang;
 
 
 // curl -i 'https://api.github.com/users/whatever?client_id=05350e6d2ae541f5631b&client_secret=5cce9bb3410b09f7398e47868663bac7425726ee'
+
