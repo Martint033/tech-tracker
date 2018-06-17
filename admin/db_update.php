@@ -1,12 +1,13 @@
 <?php
 
-require "models/Database.php";
-require "models/DbManager.php";
-require "models/CommuneManager.php";
-require "models/RegionLanguageManager.php";
-require "models/Region.php";
+require "../models/DataBase.php";
+require "../models/DbManager.php";
+require "../models/CommuneManager.php";
+require "../models/RegionLanguageManager.php";
+require "../models/Region.php";
 
-
+define('BR', '<br>');
+ini_set('max_execution_time', 300);
 $update = new RegionLanguageManager();
 
 $code_region = array('11' => 'Île-de-France',
@@ -24,7 +25,7 @@ $code_region = array('11' => 'Île-de-France',
                         '94' => 'Corse'); 
                                   
 
-$allLanguage = ['php', 'javascript', 'python', 'java', 'ruby', 'c', 'c++', 'c#'];
+$allLanguage = ['php', 'javascript', 'python', 'java', 'ruby', 'c', 'cpp', 'csharp', 'assembly'];
 
 
 
@@ -55,36 +56,42 @@ function allTownIn($region){
 
 
 
-$total=0;
-$verif = 0;
+$total = 0;
 $etat = 0;
+
+echo 'Début de la mise à jour de la base de donnée langage par région' . BR;
 
 foreach ($code_region as $keyReg => $valueReg){
     
     $regionEnCours = new Region((int)$keyReg, $valueReg);
     $town = allTownIn($keyReg);
+
+    echo "Region en cours = " . $regionEnCours->get_region() . BR;
     
     for ($y = 0; $y < count($allLanguage); $y++) {
-        
-        for ($x=0; $x < 5; $x++){
-                
+
+        echo "Traitement langage = " . $allLanguage[$y] . BR;
+
+        for ($x=0; $x < count($town); $x++){
+
+            echo "Ville en cours de traitement = " . $town[$x]['nom_commune'] . BR; 
+
             $total += totalRepo($town[$x]['nom_commune'], $allLanguage[$y] );
             $etat++;
             if ($etat > 29){
+
+                echo "Pause limit rate" . BR;
+
                 sleep(60);
                 $etat = 0;
             }
         }
-        if ($allLanguage[$y] == 'c++'){
-            $regionEnCours->set_cPlusPlus($total);
-        }
-        else if ($allLanguage[$y] == 'c#'){
-            $regionEnCours->set_cSharp($total);
-        }
-        else {
-            $setLang = 'set_'.$allLanguage[$y];
-            $regionEnCours->$setLang($total);
-        }
+       
+        $setLang = 'set_'.$allLanguage[$y];
+        $regionEnCours->$setLang($total);
+
+        echo 'total repo = ' . $total . BR;
+        
         $total = 0;
     }
     $regionEnCours->computeTotalRep();
@@ -92,17 +99,11 @@ foreach ($code_region as $keyReg => $valueReg){
     $verif = $update->read($keyReg);
     if (empty($verif)){
         $update->insert($regionEnCours->toArray());
+        echo "Insertion BDD" . BR;
     }
     
     else {
         $update->update($keyReg, $regionEnCours->toArray());
-    }
-    
+        echo "Mise à jour BDD" . BR;
+    }   
 }
-
-
-
-
-
-// curl -i 'https://api.github.com/users/whatever?client_id=05350e6d2ae541f5631b&client_secret=5cce9bb3410b09f7398e47868663bac7425726ee'
-

@@ -11,10 +11,10 @@ class RegionLanguageManager extends DbManager{
 		$req->execute();
 		return $req->fetch(PDO::FETCH_ASSOC);
 	}
-	// attend un tableau assoc [code_region, region, total, php, javascript, python, java, ruby, c, cPlusPlus, cSharp]
+	// attend un tableau assoc [code_region, region, total, php, javascript, python, java, ruby, c, cpp, csharp]
 	public function insert(array $data){
 		// var_dump($data);
-		$sql = 'INSERT INTO ' . $this->table . ' (code_region, region, total, php, javascript, python, java, ruby, c, cPlusPlus, cSharp) VALUES (:code_region, :region, :total, :php, :javascript, :python, :java, :ruby, :c, :cPlusPlus, :cSharp)';
+		$sql = 'INSERT INTO ' . $this->table . ' (code_region, region, total, php, javascript, python, java, ruby, c, cpp, csharp, assembly) VALUES (:code_region, :region, :total, :php, :javascript, :python, :java, :ruby, :c, :cpp, :csharp, :assembly)';
 		$req = $this->dbh->prepare($sql);
 		$req->bindParam(':code_region', $data['code_region'], PDO::PARAM_INT);
 		$req->bindParam(':region', $data['region'], PDO::PARAM_STR);
@@ -25,9 +25,9 @@ class RegionLanguageManager extends DbManager{
 		$req->bindParam(':java', $data['java'], PDO::PARAM_INT);
 		$req->bindParam(':ruby', $data['ruby'], PDO::PARAM_INT);		
 		$req->bindParam(':c', $data['c'], PDO::PARAM_INT);
-		$req->bindParam(':cPlusPlus', $data['cPlusPlus'], PDO::PARAM_INT);
-		$req->bindParam(':cSharp', $data['cSharp'], PDO::PARAM_INT);
-		
+		$req->bindParam(':cpp', $data['cpp'], PDO::PARAM_INT);
+		$req->bindParam(':csharp', $data['csharp'], PDO::PARAM_INT);
+		$req->bindParam(':assembly', $data['assembly'], PDO::PARAM_INT);
 		$req->execute();	
 	}
 	// attend un code région et un tableau associatif

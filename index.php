@@ -1,5 +1,10 @@
 <?php
-
+spl_autoload_register(function ($class) {
+    include __DIR__ . '/models/' . $class . '.php';
+});
+if (!isset($_SESSION)){
+    session_start();
+}
 if (isset($_GET['action'])) {
     switch ($_GET['action']){
         
@@ -11,14 +16,11 @@ if (isset($_GET['action'])) {
             require "controllers/map.php";
             break;
 
-
         case "test":
             require "controllers/test.php";
             break;
     }
 }
-
-
 else {
     require "controllers/home.php";
 }

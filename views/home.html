@@ -1,27 +1,22 @@
 {% extends "layout.html" %}
-
-{% block style %}
-<link rel="stylesheet" href="assets/css/styleHome.css">
-<link rel="stylesheet" href="assets/css/styleButton.css">
-{% endblock style %}
-
+	{% block title %}HOME{% endblock title %}
+	{% block style %}
+		{{ parent() }}
+		<link rel="stylesheet" href="assets/css/styleHome.css">
+		<link rel="stylesheet" href="assets/css/styleButton.css">
+	{% endblock style %}	
 {% block content %}
-
-<div class="main">
-    <h1>Bienvenue sur TECH - TRACKER</h1>
-    <p>Le site qui tracke les techs utilisées par les devs !</p>
-</div>
-
-<div class="pulse">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
-<div class="button-container-2">
-    <span class="mas">TRACKER</span>
-  <button type="button" name="Hover">TRACKER</button>
-</div>
-
-
+	<div class="main">
+	    <h1>Bienvenue sur TECH - TRACKER</h1>
+	    <p>Le site qui tracke les techs utilisées par les devs !</p>
+	</div>
+	<div class="pulse">
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	</div>
+	<div class="button-container-2">
+	    <span class="mas">TRACKER</span>
+	  <button type="button" name="Hover">TRACKER</button>
+	</div>
 {% endblock content %}
