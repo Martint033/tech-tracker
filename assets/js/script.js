@@ -1,6 +1,6 @@
 var map = document.querySelector('#map')
 var paths = map.querySelectorAll('.map__image a')
-var links = map.querySelectorAll('.map__list a')
+var links = map.querySelectorAll('.map__list p')
 
 
 //Polyfill du foreach
