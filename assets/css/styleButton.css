@@ -4,20 +4,18 @@
   height: 50px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 35vh;
+  margin-top: auto;
   overflow: hidden;
-  border: 1px solid #a4ced2;
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
+  border: 1px solid black;
+  font-family: "Orbitron";
   transition: 0.5s;
   letter-spacing: 1px;
 }
 .button-container-2 button {
-  width: 101%;
+  width: 100%;
   height: 100%;
   font-family: "Orbitron";
-  font-weight: 300;
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 1px;
   background: #a4ced2;
   -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
@@ -37,14 +35,14 @@
 
 .mas {
   position: absolute;
-  color: #000;
+  color: #a4ced2;
   text-align: center;
-  width: 101%;
+  width: 100%;
   font-family: "Orbitron";
-  font-weight: 300;
+  border: 2px solid #a4ced2;
   position: absolute;
-  font-size: 20px;
-  margin-top: 12px;
+  font-size: 15px;
+  margin-top: 18px;
   overflow: hidden;
 }
 
@@ -89,7 +87,7 @@
   }
 }
 a {
-  color: #00ff95;
+  color: #a4ced2;
 }
 
 /*# sourceMappingURL=assets/css/styleButton.css.map */

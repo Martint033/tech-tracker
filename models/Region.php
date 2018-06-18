@@ -10,8 +10,9 @@ class Region{
 	protected $java;
 	protected $ruby;
 	protected $c;
-	protected $cPlusPlus;
-	protected $cSharp;
+	protected $cpp;
+	protected $csharp;
+	protected $assembly;
 
 	public function __construct(int $code_region, string $region){
 		$this->code_region = $code_region;
@@ -45,11 +46,14 @@ class Region{
 	public function set_c(int $value){
 		$this->c = $value;
 	}
-	public function set_cPlusPlus(int $value){
-		$this->cPlusPlus = $value;
+	public function set_cpp(int $value){
+		$this->cpp = $value;
 	}
-	public function set_cSharp(int $value){
-		$this->cSharp = $value;
+	public function set_csharp(int $value){
+		$this->csharp = $value;
+	}
+	public function set_assembly(int $value){
+		$this->assembly = $value;
 	}
 	// getters
 	public function get_code_region(){
@@ -79,17 +83,20 @@ class Region{
 	public function get_c(){
 		return $this->c;
 	}
-	public function get_cPlusPlus(){
-		return $this->cPlusPlus;
+	public function get_cpp(){
+		return $this->cpp;
 	}
-	public function get_cSharp(){
-		return $this->cSharp;
+	public function get_csharp(){
+		return $this->csharp;
+	}
+	public function get_assembly(){
+		return $this->assembly;
 	}
 	public function toArray(){
 		return get_object_vars($this);
 	}
 	public function computeTotalRep(){
-		$total = $this->php + $this->javascript + $this->python + $this->java + $this->ruby + $this->c + $this->cPlusPlus + $this->cSharp;
+		$total = $this->php + $this->javascript + $this->python + $this->java + $this->ruby + $this->c + $this->cpp + $this->csharp + $this->assembly;
 		$this->total = $total;
 	}
 }

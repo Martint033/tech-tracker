@@ -4,7 +4,6 @@ body {
     font-family: Orbitron;
     background: url("../media/platinium.jpg");
     background-size: cover;
-    background-repeat: round;
 }
 
 .map__image {
@@ -52,8 +51,8 @@ body {
 }
 
 p {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
 }
 
 .map__list p:last-child {
@@ -79,10 +78,11 @@ p {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    /* left: 25%;
+    top: 25%;
+    transform: translate(-50%,-50%); */
+    width: auto; /* Full width */
+    height: auto; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -90,6 +90,7 @@ p {
 
 /* Modal Content */
 .modal-content {
+    width: 100%; /* Full width */
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -112,6 +113,11 @@ p {
     cursor: pointer;
 }
 
+#piechart_3d {
+    width: 800px;
+    height:600px;
+}
+
 
 
 /* Media Queries */
@@ -126,7 +132,13 @@ p {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-52%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .map__image svg {
+        width: 500px;
+        height: 600px;
+        padding-top: 80px;
     }
 }
 
@@ -143,16 +155,16 @@ p {
     }
 
     .map__image {
-        width: 500px;
+      
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-55%, -55%);
+        transform: translate(-65%, -55%);
     }
 
     .map__image svg {
-        width: 80%;
-        height: 500px;
+        width: 400px;
+        height: 600px;
         padding-top: 100px;
     }
 }
@@ -160,17 +172,16 @@ p {
 @media all and (min-width: 1024px) and (max-width: 1440px) { 
 
     .map__image svg {
-        width: 500px;
+        width: 475px;
         height: 600px;
         padding-top: 100px;
     }
 
     .map__image {
-        width: 500px;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-65%, -50%);
+        top: 43%;
+        left: 55%;
+        transform: translate(-75%, -53%);
     }
 
     .map__list {
@@ -187,17 +198,17 @@ p {
 @media all and (min-width: 1440px) and (max-width: 2540px) { 
 
     .map__image svg {
-        width: 100%;
+        width: 500px;
         height: 600px;
         padding-top: 100px;
     }
 
     .map__image {
-        width: 600px;
+        width: 475px;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-65%, -50%);
+        transform: translate(-65%, -60%);
     }
 
     .map__list {
@@ -205,7 +216,7 @@ p {
         flex-direction: column;
         justify-content: space-between;
         float: right;
-        width: 30%;
+        width: 25%;
         border: 1px solid white;
         background-color: #a4ced2;
     }

@@ -19,20 +19,18 @@ $col) {
  height: 50px;
  margin-left: auto;
  margin-right: auto;
- margin-top: 28vh;
+ margin-top: auto;
  overflow: hidden;
- border: 1px solid #a4ced2;
- font-family: 'Lato', sans-serif;
- font-weight: 300;
+ border: 1px solid black;
+ font-family: 'Orbitron';
  transition: 0.5s;
  letter-spacing: 1px;
 
  button {
-  width: 101%;
+  width: 100%;
   height: 100%;
   font-family: 'Orbitron';
-  font-weight: 300;
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 1px;
 
   @include button(#a4ced2,
@@ -54,14 +52,15 @@ $col) {
 
 .mas {
  position: absolute;
- color: #000;
+ color: #a4ced2;
  text-align: center;
- width: 101%;
+ width: 100%;
  font-family: 'Orbitron';
- font-weight: 300;
+ border: 2px solid #a4ced2;
+ bo
  position: absolute;
- font-size: 20px;
- margin-top: 12px;
+ font-size: 15px;
+ margin-top: 18px;
  overflow: hidden;
 }
 
@@ -114,5 +113,5 @@ $col) {
 }
 
 a{
-    color:#00ff95;
+    color:#a4ced2;
 }
