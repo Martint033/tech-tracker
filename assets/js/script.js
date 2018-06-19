@@ -58,7 +58,7 @@ function ajaxCall(code_region){
         return response.json();
     }).then(function(response){
         calledRegion = response;
-        console.log(calledRegion);
+        //console.log(calledRegion);
         google.charts.setOnLoadCallback(drawChart);
         modal.style.display = "block";
         // When the user clicks on <span> (x), close the modal
@@ -73,24 +73,24 @@ function ajaxCall(code_region){
         }                   
     });
 }
-// écouteurs d'évènnement sur les paths de la carte svg(régions)
+// écouteurs d'évènement sur les paths de la carte svg(régions)
 paths.forEach(function (path) {
     // selectionnne le id d'un path du svg et appel activeArea
     path.addEventListener('mouseenter', function () {
         var id = this.id.replace('region-','');
         activeArea(id);
     });
-    // gestion event 'click' 
+    // gestion event 'click'
     path.addEventListener('click', function(event){
         event.preventDefault();
         var id = this.id.replace('region-','');
         var code_region = regions[id];
-        console.log(code_region);
-        console.log(id);
+        //console.log(code_region);
+        //console.log(id);
         ajaxCall(code_region);
     });
 });
-// écouteurs d'évènnement sur les liens de la liste
+// écouteurs d'évènement sur les liens de la liste
 links.forEach(function (link) {
     // selectionnne le id d'un lien de la liste régions
     link.addEventListener('mouseenter', function () {
@@ -102,7 +102,7 @@ links.forEach(function (link) {
         event.preventDefault();
         var id = this.id.replace('list-','');
         var code_region = regions[id];
-        console.log(id);
+        //console.log(id);
         ajaxCall(code_region);
     });
 });

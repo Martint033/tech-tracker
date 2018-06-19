@@ -50,6 +50,11 @@ body {
     transition: color 0.3s;
 }
 
+.list-content {
+    background-color: #000;
+    color: #a4ced2;
+}
+
 p {
     padding-top: 15px;
     padding-bottom: 10px;
@@ -76,13 +81,13 @@ p {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    z-index: 20; /* Sit on top */
+    /* padding-top: 100px; /* Location of the box */
     /* left: 25%;
     top: 25%;
     transform: translate(-50%,-50%); */
-    width: auto; /* Full width */
-    height: auto; /* Full height */
+    width: 0; /* Full width */
+    height: 0; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -93,7 +98,6 @@ p {
     width: 100%; /* Full width */
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
     border: 1px solid #888;
     width: 30%;
 }
@@ -114,8 +118,8 @@ p {
 }
 
 #piechart_3d {
-    width: 800px;
-    height:600px;
+    width: 400px;
+    height:400px;
 }
 
 
