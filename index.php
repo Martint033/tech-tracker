@@ -19,6 +19,10 @@ if (isset($_GET['action'])) {
         case "test":
             require "controllers/test.php";
             break;
+
+        case "compare":
+            require "controllers/compare.php";
+            break;
     }
 }
 else {

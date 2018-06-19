@@ -62,15 +62,12 @@ paths.forEach(function (path) {
         event.preventDefault();
         var id = this.id.replace('region-','');
         var code_region = regions[id];
-        console.log(code_region);
-        console.log(id);
         fetch("models/sendJson.php?region=" + code_region)
         .then( // on attend d'avoir complètement chargé le fichier, PUIS (then)on effectue la fonction 
             function (response){
             return response.json();
         }).then(function(response){
             calledRegion = response;
-            console.log(calledRegion);
             google.charts.setOnLoadCallback(drawChart);
             modal.style.display = "block";
             // When the user clicks on <span> (x), close the modal
@@ -97,7 +94,6 @@ links.forEach(function (link) {
     link.addEventListener('click', function(event){
         event.preventDefault();
         var id = this.id.replace('list-','');
-        console.log(id);
     });
 });
 // déselection du path et du lien de la liste à la sortie du survol souris
