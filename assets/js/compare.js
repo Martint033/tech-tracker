@@ -1,17 +1,18 @@
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
-        [calledRegion[y].region, "php", "javascript", "python", "java", "ruby", "c", "cpp", "csharp", "assembly"],
-        [" ", parseInt(calledRegion[y].php), parseInt(calledRegion[y].javascript), parseInt(calledRegion[y].python), parseInt(calledRegion[y].java), parseInt(calledRegion[y].ruby), parseInt(calledRegion[y].c), parseInt(calledRegion[y].cpp), parseInt(calledRegion[y].csharp), parseInt(calledRegion[y].assembly)]
+        [calledRegion[x].region, "php", "javascript", "python", "java", "ruby", "c", "cpp", "csharp", "assembly"],
+        [" ", parseInt(calledRegion[x].php), parseInt(calledRegion[x].javascript), parseInt(calledRegion[x].python), parseInt(calledRegion[x].java), parseInt(calledRegion[x].ruby), parseInt(calledRegion[x].c), parseInt(calledRegion[x].cpp), parseInt(calledRegion[x].csharp), parseInt(calledRegion[x].assembly)]
     ]);
 
     var options = {
         chart: {
-            title: calledRegion[y].region,                
+            title: calledRegion[x].region,                
         },
     };
-    console.log("dans le if: y = "+y+"region = "+calledRegion[y].region);
 
-    switch (y){
+    console.log("dans la fonction: region = "+calledRegion.length);
+
+    switch (x){
         case 0:
             var chart = new google.charts.Bar(document.getElementById('columnchart_materialA'));
             break;
@@ -41,34 +42,31 @@ function drawChart() {
 
 
 var calledRegion = new Array();
-var y = 0;   
+var x = 0;   
 
 
 
 
-document.getElementById("submitCompare").addEventListener("click", function (e) {
+document.getElementById("submitCompare").addEventListener("click", function (e) {   
     
     e.preventDefault(); 
-    var choiceRegion = document.getElementsByClassName("regions");
-    
-    y = 0;
+    // var choiceRegion = document.getElementsByClassName("regions");
 
-    for (var x = 0; x < choiceRegion.length; x++){
+    var choiceRegion = document.querySelectorAll("input[name='regions']:checked");
+  
+    for (x = 0; x < choiceRegion.length; x++){
 
-        console.log("y = "+y+", x = "+x+", length = "+calledRegion.length);
-
-        if (choiceRegion[x].checked === true){
             fetch("models/sendJson.php?region=" + choiceRegion[x].value)
                 .then( function (response){
                     return response.json();
                 }).then(function(response){
-                    calledRegion[y] = response;                                   
+                    calledRegion[x] = response;
+                    for (var y = 0; y < calledRegion.length; y++)
+                    {   console.log(calledRegion[y].region);    }                                 
                     });
          
             google.charts.load('current', {'packages':['bar']});
             google.charts.setOnLoadCallback(drawChart);
  
-             y++;
-        }   // end if
     }   // end for
 });
