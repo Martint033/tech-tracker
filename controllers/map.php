@@ -1,8 +1,8 @@
 <?php
     require 'vendor/autoload.php';
-    require "../models/DataBase.php";
-    require "../models/DbManager.php";
-	require "../models/LastUpdateDateManager.php";
+    require "models/DataBase.php";
+    require "models/DbManager.php";
+	require "models/LastUpdateDateManager.php";
     $loader = new Twig_Loader_Filesystem('views'); // Dossier contenant les templates
     $twig = new Twig_Environment($loader, array(
       'cache' => false
