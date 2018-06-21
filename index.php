@@ -1,7 +1,4 @@
 <?php
-spl_autoload_register(function ($class) {
-    include __DIR__ . '/models/' . $class . '.php';
-});
 if (!isset($_SESSION)){
     session_start();
 }
@@ -22,6 +19,9 @@ if (isset($_GET['action'])) {
 
         case "compare":
             require "controllers/compare.php";
+            break;
+        case "top":
+            require "controllers/top.php";
             break;
     }
 }

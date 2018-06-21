@@ -4,8 +4,11 @@ require "../models/DataBase.php";
 require "../models/DbManager.php";
 require "../models/CommuneManager.php";
 require "../models/RegionLanguageManager.php";
+require "../models/CommuneLanguageManager.php";
+require "../models/GeoElt.php";
 require "../models/Region.php";
-
+require "../models/Commune.php";
+require "../models/LastUpdateDateManager.php";
 define('BR', '<br>');
 ini_set('max_execution_time', 300);
 $update = new RegionLanguageManager();
@@ -65,7 +68,11 @@ foreach ($code_region as $keyReg => $valueReg){
     
     $regionEnCours = new Region((int)$keyReg, $valueReg);
     $town = allTownIn($keyReg);
-
+    $communes = array();// tableau des instances de Commune
+    for ($i = 0; $i < count($town); $i++){
+        $commune = new Commune($town[$i]['id'], $town[$i]['code_region'], $town[$i]['nom_commune']);
+        $communes[] = $commune;
+    }
     echo "Region en cours = " . $regionEnCours->get_region() . BR;
     
     for ($y = 0; $y < count($allLanguage); $y++) {
@@ -73,10 +80,16 @@ foreach ($code_region as $keyReg => $valueReg){
         echo "Traitement langage = " . $allLanguage[$y] . BR;
 
         for ($x=0; $x < count($town); $x++){
-
+            $communeEnCours = $communes[$x];
             echo "Ville en cours de traitement = " . $town[$x]['nom_commune'] . BR; 
-
-            $total += totalRepo($town[$x]['nom_commune'], $allLanguage[$y] );
+            $reqTotal = totalRepo($town[$x]['nom_commune'], $allLanguage[$y] );
+            $total += $reqTotal;
+            echo 'Total pour la ville = ' . $reqTotal . BR;
+            $setLangCommune = 'set_'.$allLanguage[$y];
+            $communeEnCours->$setLangCommune($reqTotal);
+            echo '<pre>';
+            var_dump($communeEnCours);
+            echo '</pre>';
             $etat++;
             if ($etat > 29){
 
@@ -89,7 +102,6 @@ foreach ($code_region as $keyReg => $valueReg){
        
         $setLang = 'set_'.$allLanguage[$y];
         $regionEnCours->$setLang($total);
-
         echo 'total repo = ' . $total . BR;
         
         $total = 0;
@@ -105,5 +117,22 @@ foreach ($code_region as $keyReg => $valueReg){
     else {
         $update->update($keyReg, $regionEnCours->toArray());
         echo "Mise à jour BDD" . BR;
+    }
+    $communeBdd = new CommuneLanguageManager();
+    for ($i = 0; $i < count($town); $i++){
+        $communeEnCours = $communes[$i];
+        $communeEnCours->computeTotalRep();
+        $verif = $communeBdd->read($communeEnCours->get_id());
+        if (empty($verif)){
+            $communeBdd->insert($communeEnCours->toArray());
+            echo "Insertion BDD" . BR;
+        }
+        
+        else {
+            $communeBdd->update($communeEnCours->get_id(), $communeEnCours->toArray());
+            echo "Mise à jour BDD" . BR;
+        }
     }   
 }
+$date = new LastUpdateDateManager();
+$date->update();
