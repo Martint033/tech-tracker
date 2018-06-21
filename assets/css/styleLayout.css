@@ -38,12 +38,14 @@ nav ul li a {
 }
 
 .navFooter {
+    position: absolute;
     font-size: 16px;
+    bottom: 0;
     width: 100%;
-    color: #a4ced2;
+    color: #77cbd3;
     text-align: center;
     z-index: -10;
-}
+    }
 
 
 /* Media Queries */
