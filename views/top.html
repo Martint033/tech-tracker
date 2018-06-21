@@ -1,0 +1,40 @@
+{% extends "layout.html" %} {% block title %}Top Five{% endblock title %} {% block style %} {{ parent() }}
+<link rel="stylesheet" href="assets/css/styleTop.css"> {% endblock style %} {% block content %}
+<section id="topFive">
+	<h2>Top 5 des villes par nombre de projet :</h2>
+	<article id="topFiveTowns">
+		{% for town in topTotalFrance %}
+		<div class="result_row">
+			<p>{{ town.nom_commune }}</p>
+			<p>{{ town.total }} projets</p>
+		</div>
+		{% endfor %}
+	</article>
+</section>
+
+<h2>Top 5 villes par région :</h2>
+
+<section id="topFiveRegion">
+
+
+	{% for region in topVillesParRegion %}
+	<article id="b">
+
+	
+		<h5>{{ region.code_region }} :</h5>
+
+
+		{% for ville in region.villes %}
+
+
+		<div class="result_row">
+
+		
+			<p>{{ ville.nom_commune }}</p>
+		
+			<p>{{ ville.total }} projets</p>
+			</div>                   {% endfor %}
+	</article>
+	{% endfor %}
+</section>
+{% endblock content %}

@@ -1,0 +1,25 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Orbitron;
+    background: url("../media/platinium.jpg");
+    background-size: cover;
+}
+
+h2, h5 {
+    text-align: center;
+    color: #77cbd3;
+}
+
+
+#topFiveTowns {
+    display: flex;
+    justify-content: space-around;
+}
+
+#topFiveRegion {
+    display: flex;
+
+}
+
+
