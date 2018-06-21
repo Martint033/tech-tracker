@@ -8,7 +8,7 @@ require "models/CommuneLanguageManager.php";
 require "models/GeoElt.php";
 require "models/Region.php";
 require "models/Commune.php";
-   
+require "models/LastUpdateDateManager.php";   
 $loader = new Twig_Loader_Filesystem('views'); // Dossier contenant les templates
 $twig = new Twig_Environment($loader, array(
   'cache' => false
@@ -29,7 +29,8 @@ $code_region = array('11' => 'Île-de-France',
                                   
 
 $allLanguage = ['php', 'javascript', 'python', 'java', 'ruby', 'c', 'cpp', 'csharp', 'assembly'];
-
+$dateManager = new LastUpdateDateManager();
+$date_last_update = $dateManager->read();
 $townManager = new CommuneLanguageManager();
 $topVillesParRegion = array();
 $topTotalFrance = $townManager->topFive();
@@ -37,4 +38,4 @@ foreach ($code_region as $keyReg => $valueReg){
 	$topVillesParRegion[] = array("code_region" => $valueReg, "villes" => $townManager->topFive((int)$keyReg));
 }
 $template = $twig->load('top.html');
-echo $template->render(array('topVillesParRegion' => $topVillesParRegion, 'topTotalFrance' => $topTotalFrance));
+echo $template->render(array('topVillesParRegion' => $topVillesParRegion, 'topTotalFrance' => $topTotalFrance, 'date_update' => $date_last_update));
