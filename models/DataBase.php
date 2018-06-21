@@ -1,4 +1,4 @@
-om<?php
+<?php
 class DataBase{
 
 	private $host;
@@ -7,7 +7,7 @@ class DataBase{
 	private $pass;
 	private $instance;
 
-	public function __construct($host = "localhost", $dbname = "tech_tracker", $user = "root", $pass = ""){
+	public function __construct($host = "localhost", $dbname = "tech_tracker", $user = "adnane", $pass = "piccolo333"){
 		$this->host = $host;
 		$this->dbname = $dbname;
 		$this->user = $user;
