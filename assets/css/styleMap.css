@@ -23,10 +23,13 @@ body {
     fill: #a4ced2;
     stroke: #FFF;
     stroke-width: 1px;
-    transition: fill 0.3s;
+    transition: all 300ms linear;
+    transform: scale(1);
 }
 
 .map__image path:hover {
+    transition: all 300ms linear;
+    transform: scale(1.15);
     fill: white;
 }
 
@@ -48,6 +51,11 @@ body {
     color: inherit;
     text-decoration: none;
     transition: color 0.3s;
+}
+
+.list-content {
+    background-color: #000;
+    color: #a4ced2;
 }
 
 p {
@@ -74,34 +82,35 @@ p {
 /* Modal */
 
 .modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 20; /* Sit on top */
     padding-top: 100px; /* Location of the box */
-    /* left: 25%;
-    top: 25%;
-    transform: translate(-50%,-50%); */
-    width: auto; /* Full width */
-    height: auto; /* Full height */
+    width: 600px; /* Full width */
+    height: 600px; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /* background-color: rgb(0,0,0); /* Fallback color
+    /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
 }
 
 /* Modal Content */
 .modal-content {
-    width: 100%; /* Full width */
-    background-color: #fefefe;
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: #a4ced2;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 30%;
-}
+    border: 1px solid #000;
+} 
 
 /* The Close Button */
 .close {
     color: #aaaaaa;
     float: right;
+    font-family: Orbitron;
     font-size: 28px;
     font-weight: bold;
 }
@@ -114,8 +123,29 @@ p {
 }
 
 #piechart_3d {
-    width: 800px;
-    height:600px;
+    position: relative;
+    width: 500px;
+    height:500px;
+    transition: scale 1s;
+}
+
+/*#piechart_3d path {
+    fill: #a4ced2;
+    stroke: #FFF;
+    stroke-width: 1px;
+    transition: fill 0.3s;
+} */
+
+ #piechart_3d path:hover {
+    scale: 2 0.7;
+}
+
+/*#piechart_3d .is-active path {
+    fill: white;
+} */
+
+#piechart_3d {
+    font-family: Orbitron;
 }
 
 

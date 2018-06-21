@@ -4,7 +4,7 @@
   height: 50px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: auto;
+  margin-top: 0;
   overflow: hidden;
   border: 1px solid black;
   font-family: "Orbitron";
@@ -39,11 +39,9 @@
   text-align: center;
   width: 100%;
   font-family: "Orbitron";
-  border: 2px solid #a4ced2;
   position: absolute;
   font-size: 15px;
-  margin-top: 18px;
-  overflow: hidden;
+  padding-top: 17px;
 }
 
 @-webkit-keyframes ani {
@@ -88,6 +86,43 @@
 }
 a {
   color: #a4ced2;
+}
+
+@media only screen and (min-width: 1440px) {
+  .button-container-2 {
+    position: relative;
+    width: 150px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    overflow: hidden;
+    border: 1px solid black;
+    font-family: "Orbitron";
+    transition: 0.5s;
+    letter-spacing: 1px;
+  }
+  .button-container-2 button {
+    width: 100%;
+    height: 100%;
+    font-family: "Orbitron";
+    font-size: 15px;
+    letter-spacing: 1px;
+    background: #a4ced2;
+    -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+    mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
+    -webkit-mask-size: 3000% 100%;
+    mask-size: 3000% 100%;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    -webkit-animation: ani2 0.7s steps(29) forwards;
+    animation: ani2 0.7s steps(29) forwards;
+  }
+  .button-container-2 button:hover {
+    -webkit-animation: ani 0.7s steps(29) forwards;
+    animation: ani 0.7s steps(29) forwards;
+  }
 }
 
 /*# sourceMappingURL=assets/css/styleButton.css.map */

@@ -129,5 +129,3 @@ links.forEach(function (link) {
 map.addEventListener('mouseover', function () {
     activeArea();
 });
-
-
