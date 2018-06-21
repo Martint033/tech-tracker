@@ -1,15 +1,15 @@
 /* NavBar */
 
 nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    top: 10px;
-    left: 0;
     width: 100%;
     transition: .5s;
 }
 
 nav .logo {
-    float: left;
     padding-left: 15px;
     padding-top: 10px;
 }
@@ -26,12 +26,11 @@ nav ul {
 
 nav ul li {
     list-style: none;
-    
 }
 
 nav ul li a {
     padding-left: 20px;
-    font-size: 18px;
+    font-size: 25px;
     line-height: 70px;
     text-decoration: none;
     transition: .5s;
@@ -51,20 +50,25 @@ nav ul li a {
 
 /* Media Queries */
 
-@media all and (min-width: 320px) and (max-width: 767px) { 
+@media all and (min-width: 576px) and (max-width: 767px) { 
+
+    .container {
+        width: 100%;
+    }
 
     nav ul li a {
-        font-size: 20px;
+        font-size: 22px
     }
 }
 
-@media all and (min-width: 768px) and (max-width: 1023px) { 
+@media all and (min-width: 768px) and (max-width: 991px) { 
 
     nav {
-        top: 10px;
-        left: 0;
-        width: 400px;
-        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
         transition: .5s;
     }
 
@@ -74,14 +78,13 @@ nav ul li a {
     }
 
     nav .logo img {
-        height: 80px;
+        height: 80px;;display: block;
     }
 
     .navFooter {
-        display: block;
-        position: absolute;
         font-size: 16px;
         bottom: 0;
+        left: 0;
         width: 100%;
         color: #a4ced2;
         text-align: center;
@@ -89,18 +92,19 @@ nav ul li a {
         }
 }
 
-@media all and (min-width: 1024px) and (max-width: 1440px) { 
+@media all and (min-width: 992px) and (max-width: 1199px) { 
 
     nav {
-        top: 10px;
-        left: 0;
-        width: 400px;
-        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
         transition: .5s;
     }
 
     nav ul li a {
-        font-size: 25px;
+        font-size: 30px;
         line-height: 100px;
     }
 
@@ -109,18 +113,17 @@ nav ul li a {
     }
 
     .navFooter {
-        display: block;
-        position: absolute;
         font-size: 16px;
         bottom: 0;
+        left: 0;
         width: 100%;
         color: #a4ced2;
         text-align: center;
-        z-index: -10;
         }
 }
+
  
-@media all and (min-width: 1440px) and (max-width: 2540px) { 
+@media (min-width: 1200px) { 
 
     nav {
         top: 10px;
@@ -140,9 +143,8 @@ nav ul li a {
     }
 
     .navFooter {
-        display: block;
-        position: absolute;
-        font-size: 16px;
+        font-size: 20px;
+        left: 0;
         bottom: 0;
         width: 100%;
         color: #a4ced2;

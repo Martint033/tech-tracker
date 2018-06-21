@@ -10,31 +10,16 @@ body {
 
 .main {
     position: relative;
+    width: 800px;
     top: auto;
-    margin-top: 10px;
+    margin: auto;
     background-color: #a4ced2;
-}
-
-.main-content {
-    margin-top: 20px;
-    color: #a4ced2;
-}
-
-h2 {
-    text-align: center;
-    padding-top: 10px;
-    font-size: 20px;
-    color: #a4ced2;
-}
-
-.text-content {
-    padding-left: 20px;
-    padding-right: 20px;
-    line-height: 1.5;
-    color: #a4ced2;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
 }
 
 .main h1 {
+    color: #a4ced2;
     padding-top: 10px;
     font-size: 20px;
     text-align: center;
@@ -42,10 +27,26 @@ h2 {
 }
 
 p {
+    color: #a4ced2;
     padding-bottom: 10px;
     font-size: 15px;
-    color: black;
     text-align: center;
+}
+
+.main-content {
+    margin: auto;
+    width: 800px;
+    margin-top: 20px;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+.text-content {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 1.5;
+    color: #a4ced2;
 }
 
 .pulse {
@@ -59,7 +60,7 @@ p {
     background-size: cover;
     animation: animateEarth 12s linear infinite;
     border-radius: 50%;
-    box-shadow: inset 0 0 30px rgba(255,255,255,.5);
+    box-shadow: inset 2 0 30px rgba(255,255,255,.5);
 }
 
 @keyframes animateEarth {
@@ -92,7 +93,7 @@ p {
     height: 100%;
     border-radius: 50%;
     background: transparent;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     box-sizing: border-box;
     animation: animate 6s linear infinite;
 }
@@ -131,56 +132,42 @@ p {
 
 /* Media Queries  */
 
-@media all and (min-width: 320px) and (max-width: 767px) {
+@media all and (min-width: 576px) and (max-width: 767px) {
 
     .main h1 {
         padding-top: 10px;
         font-size: 20px;
-        color: black;
-        text-align: center;
     }
     
     p {
         font-size: 15px;
-        color: black;
-        text-align: center;
     }
 }
 
-@media all and (min-width: 768px) and (max-width: 1023px) {
+@media all and (min-width: 768px) and (max-width: 991px) {
     
     p {
         font-size: 20px;
-        color: black;
-        text-align: center;
     }
 }
 
-@media all and (min-width: 1024px) and (max-width: 1439px) {
+@media all and (min-width: 992px) and (max-width: 1199px) {
 
     .main h1 {
         font-size: 30px;
-        color: black;
-        text-align: center;
     }
     
     p {
         font-size: 20px;
-        color: black;
-        text-align: center;
     }
 }
-@media all and (min-width: 1440px) and (max-width: 2540px) {
+@media (min-width: 1200px) {
 
     .main h1 {
         font-size: 30px;
-        color: black;
-        text-align: center;
     }
     
     p {
         font-size: 20px;
-        color: black;
-        text-align: center;
     }
 }
