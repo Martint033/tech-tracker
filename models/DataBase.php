@@ -7,7 +7,12 @@ class DataBase{
 	private $pass;
 	private $instance;
 
+<<<<<<< HEAD
 	public function __construct($host = "localhost", $dbname = "tech_tracker", $user = "adnane", $pass = "piccolo333"){
+=======
+
+	public function __construct($host = "localhost", $dbname = "tech_tracker", $user = "admin", $pass = "online@2017"){
+>>>>>>> 58d93ab026000fd5eab6d596e079e2f42d75ec57
 		$this->host = $host;
 		$this->dbname = $dbname;
 		$this->user = $user;
