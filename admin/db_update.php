@@ -8,7 +8,7 @@ require "../models/CommuneLanguageManager.php";
 require "../models/GeoElt.php";
 require "../models/Region.php";
 require "../models/Commune.php";
-
+require "../models/LastUpdateDateManager.php";
 define('BR', '<br>');
 ini_set('max_execution_time', 300);
 $update = new RegionLanguageManager();
@@ -134,3 +134,5 @@ foreach ($code_region as $keyReg => $valueReg){
         }
     }   
 }
+$date = new LastUpdateDateManager();
+$date->update();
