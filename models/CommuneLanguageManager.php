@@ -57,5 +57,15 @@ class CommuneLanguageManager extends CommuneManager{
 		$sql = "DELETE FROM " . $this->table . " WHERE id = " . $id;
 		$req = $this->dbh->prepare($sql);
 		$req->execute();
+	}
+	public function topFive($area = null, $language = 'total'){
+		$sql = "SELECT * FROM " . $this->table;
+		if ($area != null){
+			$sql .= " WHERE code_region = " . $area;
+		} 
+		$sql .= " ORDER BY " . $language . " DESC LIMIT 5";
+		$req = $this->dbh->prepare($sql);
+		$req->execute();
+		return $req->fetchAll(PDO::FETCH_ASSOC);
 	} 
 }
