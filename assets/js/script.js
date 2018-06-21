@@ -49,17 +49,29 @@ function drawChart() {
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
     chart.draw(data, options);
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
+}
+// fonction appel ajax
+function ajaxCall(code_region){
+    fetch("models/sendJson.php?region=" + code_region)
+    .then( // on attend d'avoir complètement chargé le fichier, PUIS (then)on effectue la fonction 
+        function (response){
+        return response.json();
+    }).then(function(response){
+        calledRegion = response;
+        console.log(calledRegion);
+        google.charts.setOnLoadCallback(drawChart);
+        modal.style.display = "block";
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
             modal.style.display = "none";
         }
-    }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }                   
+    });
 }
 // écouteurs d'évènnement sur les paths de la carte svg(régions)
 paths.forEach(function (path) {
@@ -73,21 +85,30 @@ paths.forEach(function (path) {
         event.preventDefault();
         var id = this.id.replace('region-','');
         var code_region = regions[id];
-        console.log(code_region);
-        console.log(id);
         fetch("models/sendJson.php?region=" + code_region)
         .then( // on attend d'avoir complètement chargé le fichier, PUIS (then)on effectue la fonction 
             function (response){
             return response.json();
         }).then(function(response){
             calledRegion = response;
-            console.log(calledRegion);
             google.charts.setOnLoadCallback(drawChart);
             modal.style.display = "block";
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }                   
         });
+        console.log(code_region);
+        console.log(id);
+        ajaxCall(code_region);
     });
 });
-
 // écouteurs d'évènnement sur les liens de la liste
 links.forEach(function (link) {
     // selectionnne le id d'un lien de la liste régions
@@ -100,19 +121,11 @@ links.forEach(function (link) {
         event.preventDefault();
         var id = this.id.replace('list-','');
         var code_region = regions[id];
-        fetch("models/sendJson.php?region=" + code_region)
-        .then( // on attend d'avoir complètement chargé le fichier, PUIS (then)on effectue la fonction 
-            function (response){
-            return response.json();
-        }).then(function(response){
-            calledRegion = response;
-            console.log(calledRegion);
-            google.charts.setOnLoadCallback(drawChart);
-            modal.style.display = "block";
         console.log(id);
+        ajaxCall(code_region);
     });
 });
 // déselection du path et du lien de la liste à la sortie du survol souris
-map.addEventListener('mouseover', function() {
+map.addEventListener('mouseover', function () {
     activeArea();
 });
