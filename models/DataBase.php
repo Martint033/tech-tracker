@@ -1,4 +1,4 @@
-<?php
+om<?php
 class DataBase{
 
 	private $host;
