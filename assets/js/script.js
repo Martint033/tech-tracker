@@ -43,12 +43,23 @@ function drawChart() {
         ]);
 
     var options = {
-      title: calledRegion['region'],
-      is3D: true,
+        title: calledRegion['region'],
+        is3D: true,
+        width: 400,
+        height: 400,
+        
+        colors: ['#a4ced2', '#808080', '#B0E0E6', '#BBD2E1', '#B0C4DE', '#87CEFA', '#80D0D0', '#5F9EA0', '#00BFFF', '#6495ED', '#4682B4']
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-    chart.draw(data, options);
+    chart.draw(data, {
+        title: calledRegion['region'],
+        is3D: true,
+        width: 400,
+        height: 400,
+        
+        colors: ['#a4ced2', '#808080', '#B0E0E6', '#BBD2E1', '#B0C4DE', '#87CEFA', '#80D0D0', '#5F9EA0', '#00BFFF', '#6495ED', '#4682B4'],
+    });
 }
 // fonction appel ajax
 function ajaxCall(code_region){

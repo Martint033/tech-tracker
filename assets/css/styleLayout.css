@@ -38,14 +38,12 @@ nav ul li a {
 }
 
 .navFooter {
-    position: absolute;
     font-size: 16px;
     bottom: 0;
     width: 100%;
     color: #77cbd3;
     text-align: center;
-    z-index: -10;
-    }
+}
 
 
 /* Media Queries */
@@ -57,7 +55,14 @@ nav ul li a {
     }
 
     nav ul li a {
-        font-size: 22px
+        font-size: 22px;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
     }
 }
 
@@ -65,8 +70,7 @@ nav ul li a {
 
     nav {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
         overflow: hidden;
         width: 100%;
         transition: .5s;
@@ -78,7 +82,8 @@ nav ul li a {
     }
 
     nav .logo img {
-        height: 80px;;display: block;
+        height: 80px;
+        display: block;
     }
 
     .navFooter {
@@ -88,16 +93,21 @@ nav ul li a {
         width: 100%;
         color: #a4ced2;
         text-align: center;
-        z-index: -10;
-        }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
 }
 
 @media all and (min-width: 992px) and (max-width: 1199px) { 
 
     nav {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
         overflow: hidden;
         width: 100%;
         transition: .5s;
@@ -119,10 +129,16 @@ nav ul li a {
         width: 100%;
         color: #a4ced2;
         text-align: center;
-        }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
 }
 
- 
 @media (min-width: 1200px) { 
 
     nav {
@@ -149,6 +165,12 @@ nav ul li a {
         width: 100%;
         color: #a4ced2;
         text-align: center;
-        z-index: -10;
-        }
+    }
+    
+    footer {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+    }
 }
